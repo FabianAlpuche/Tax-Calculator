@@ -1,0 +1,39 @@
+#include <stdio.h> 
+
+int main(){
+int income;
+int dependents;
+float tax_credit;
+float tax;
+float Adjusted_Tax;
+float Tax_due;
+
+printf("Enter income: ");
+scanf("%d", &income);
+  if (income >0 && income <9275){
+  tax = 0.12* income;
+}
+else if (income >9275 && income <37650){
+  tax = 0.17* income;
+}
+else if (income >37650 && income <91150){
+  tax = 0.27* income;
+}
+else if (income >91150 && income <190150){
+  tax = 0.30* income;
+}
+else{
+  tax = 0.35* income;
+}
+  
+printf("Tax due: %.2f\n", tax);
+printf("Enter the number of dependents (0 for none): ");
+scanf("%d", &dependents);
+tax_credit = dependents * 450;
+  if(dependents > 5){
+    tax_credit=2250;
+  }
+printf("Tax credit: %.2f\n", tax_credit);
+Adjusted_Tax = tax - tax_credit;
+printf("Adjusted Tax: %.2f\n", Adjusted_Tax);
+}
